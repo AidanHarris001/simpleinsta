@@ -19,5 +19,7 @@ class AccountTableSeeder extends Seeder
         $a->date_of_birth = "2001-08-29";
         $a->bio = "yo it's cam!";
         $a->save();
+
+        $account = Account::factory()->count(10)->create();
     }
 }
