@@ -15,6 +15,10 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
+            $table->string('forename');
+            $table->string('surname');
+            $table->date('date_of_birth');
+            $table->string('bio');
             $table->timestamps();
         });
     }
