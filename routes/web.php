@@ -13,7 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('/', function() {
+    return "feed";
+});
+
+Route::get('/home/{name?}', function ($name = 'NoName') {
+    return "This is $name's home page";
+});
+
+Route::get('/welcome', function () {
     return view('welcome');
 });
 
