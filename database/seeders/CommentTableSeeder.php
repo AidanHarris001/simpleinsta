@@ -15,7 +15,7 @@ class CommentTableSeeder extends Seeder
      */
     public function run()
     {
-        $c = new Post;
+        $c = new Comment;
         $c->content = "Yo this is sick!!!";
         $c->account_id = 1;
         $c->post_id = 1;

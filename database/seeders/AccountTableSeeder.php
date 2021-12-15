@@ -1,8 +1,10 @@
 <?php
 
 namespace Database\Seeders;
-use App\Models\Account;
+
 use Illuminate\Database\Seeder;
+use App\Models\Account;
+
 
 class AccountTableSeeder extends Seeder
 {
