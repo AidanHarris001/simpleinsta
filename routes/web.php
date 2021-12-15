@@ -17,6 +17,10 @@ Route::get('/', function() {
     return "feed";
 });
 
+Route::get('/profile/{account?}', function($account){
+    return view('profile', ['account'=>$account]);
+});
+
 Route::get('/home/{name?}', function ($name = 'NoName') {
     return "This is $name's home page";
 });
