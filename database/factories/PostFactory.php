@@ -14,7 +14,8 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'photo' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
+            'account_id' => $this->faker->numberBetween(1,11),
         ];
     }
 }
