@@ -17,7 +17,7 @@ class AccountFactory extends Factory
             'forename' => $this->faker->firstname(),
             'surname' => $this->faker->lastname(),
             'date_of_birth' => $this->faker->date(),
-            'bio' => $this->faker->sentence($nbWords = 6, $variableNbWords = true)
+            'bio' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
         ];
     }
 }
