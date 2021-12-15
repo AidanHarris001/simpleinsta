@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AccountController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,9 @@ Route::get('/', function() {
 Route::get('/profile/{account?}', function($account){
     return view('profile', ['account'=>$account]);
 });
+
+Route::get('/accounts', [AccountController::class, 'index']);
+Route::get('/accounts/{id}', [AccountController::class, 'show']);
 
 Route::get('/home/{name?}', function ($name = 'NoName') {
     return "This is $name's home page";
