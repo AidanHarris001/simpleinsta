@@ -15,7 +15,7 @@ class PostFactory extends Factory
     {
         return [
             'photo' => $this->faker->sentence($nbWords = 6, $variableNbWords = true),
-            'account_id' => $this->faker->numberBetween(1,11),
+            'account_id' => $this->faker->numberBetween(1,10),
         ];
     }
 }
