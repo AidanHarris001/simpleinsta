@@ -25,7 +25,7 @@ class AccountController extends Controller
      */
     public function create()
     {
-        //
+        return view('accounts.create');
     }
 
     /**
@@ -36,7 +36,12 @@ class AccountController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedDate = $request->validate([
+            'forename' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'date_of_birth' => 'required|date',
+            'bio' => 'required|max:255',
+        ]);
     }
 
     /**

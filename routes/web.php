@@ -22,11 +22,17 @@ Route::get('/profile/{account?}', function($account){
     return view('profile', ['account'=>$account]);
 });
 
-Route::get('/accounts', [AccountController::class, 'index']);
-Route::get('/accounts/{id}', [AccountController::class, 'show']);
+Route::get('/accounts', [AccountController::class, 'index'])
+    ->name('accounts.index');
+Route::get('/accounts/create', [AccountController::class, 'create'])
+    ->name('accounts.create');
+Route::post('/accounts', [AccountController::class, 'store'])
+    ->name('accounts.store');
+Route::get('/accounts/{id}', [AccountController::class, 'show'])
+    ->name('accounts.show');
 
-Route::get('/home/{name?}', function ($name = 'NoName') {
-    return "This is $name's home page";
+Route::get('/home/{userName?}', function ($userName = 'NoName') {
+    return "This is $userName's home page";
 });
 
 Route::get('/welcome', function () {
