@@ -16,7 +16,7 @@ class PostTableSeeder extends Seeder
     public function run()
     {
         $p = new Post;
-        $p->photo = "Replace with photo";
+        $p->caption = "Yooo first post";
         $p->account_id = 1;
         $p->save();
 
