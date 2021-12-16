@@ -87,6 +87,10 @@ class AccountController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $account = Account::findOrFail($id);
+        $account->delete();
+
+        return redirect()->route('accounts.index')->with('message',
+        'Animal was deleted.');
     }
 }

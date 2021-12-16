@@ -23,13 +23,15 @@ Route::get('/profile/{account?}', function($account){
 });
 
 Route::get('/accounts', [AccountController::class, 'index'])
-    ->name('accounts.index');
+    ->name('accounts.index')->middleware('auth');
 Route::get('/accounts/create', [AccountController::class, 'create'])
     ->name('accounts.create');
 Route::post('/accounts', [AccountController::class, 'store'])
     ->name('accounts.store');
 Route::get('/accounts/{id}', [AccountController::class, 'show'])
     ->name('accounts.show');
+Route::delete('accounts/{id}', [AccountController::class, 'destroy'])
+    ->name('accounts.destroy');
 
 Route::get('/home/{userName?}', function ($userName = 'NoName') {
     return "This is $userName's home page";
