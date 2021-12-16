@@ -43,4 +43,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
+Route::get('/secret', function () {
+    return "secret";
+})->middleware(['auth']);
+
 require __DIR__.'/auth.php';
