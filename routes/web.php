@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,10 @@ use App\Http\Controllers\AccountController;
 |
 */
 
-Route::get('/', function() {
-    return "feed";
-});
+Route::get('/', [PostController::class, 'index'])
+    ->name('posts.index');
+Route::get('/{id}', [PostController::class, 'show'])
+    ->name('posts.show');
 
 Route::get('/profile/{account?}', function($account){
     return view('profile', ['account'=>$account]);

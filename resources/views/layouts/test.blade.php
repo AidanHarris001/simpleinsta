@@ -7,7 +7,7 @@
     <title>User Profile - @yield('title')</title>
 </head>
 <body>
-    <h1>p - @yield('title')</h1>
+    <h1>@yield('title')</h1>
     
     <div>
         @yield('content')
