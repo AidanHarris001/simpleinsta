@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,19 +16,13 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [PostController::class, 'index'])
-    ->name('posts.index');
-Route::get('/{id}', [PostController::class, 'show'])
-    ->name('posts.show');
-    Route::delete('/{id}', [PostController::class, 'destroy'])
-    ->name('posts.destroy');
 
 Route::get('/profile/{account?}', function($account){
     return view('profile', ['account'=>$account]);
 });
 
 Route::get('/accounts', [AccountController::class, 'index'])
-    ->name('accounts.index')->middleware('auth');
+    ->name('accounts.index');
 Route::get('/accounts/create', [AccountController::class, 'create'])
     ->name('accounts.create');
 Route::post('/accounts', [AccountController::class, 'store'])
@@ -52,5 +47,21 @@ Route::get('/dashboard', function () {
 Route::get('/secret', function () {
     return "secret";
 })->middleware(['auth']);
+
+Route::get('/comments', [CommentController::class, 'index'])
+    ->name('comments.index');
+Route::get('comments/{id}', [CommentController::class, 'show'])
+    ->name('comments.show');
+Route::delete('comments/{id}', [CommentController::class, 'destroy'])
+    ->name('comments.destroy');
+
+Route::get('/', [PostController::class, 'index'])
+    ->name('posts.index');
+Route::get('/{id}', [PostController::class, 'show'])
+    ->name('posts.show');
+Route::delete('/{id}', [PostController::class, 'destroy'])
+    ->name('posts.destroy');
+
+
 
 require __DIR__.'/auth.php';

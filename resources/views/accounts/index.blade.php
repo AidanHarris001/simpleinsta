@@ -11,5 +11,4 @@
             <li><a href="{{ route('accounts.show', [ 'id' => $account->id ]) }}">{{$account->forename}}</a></li>
         @endforeach
     </ul>
-    <a href="{{ route('accounts.create')}}">Create Account</a>
 @endsection

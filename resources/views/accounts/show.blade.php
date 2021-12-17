@@ -17,6 +17,5 @@
         @method('DELETE')
         <button type="submit">Delete</button>
     </form>
-
-    <p><a href="{{ route('accounts.index') }}">Back</a></p>
+    
 @endsection
