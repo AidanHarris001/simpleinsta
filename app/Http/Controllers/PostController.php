@@ -47,7 +47,7 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::all()->where('account_id', '=', $id);
         return view('posts.show', ['post' => $post]);
     }
 
@@ -60,6 +60,18 @@ class PostController extends Controller
     public function edit($id)
     {
         //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function profile($id)
+    {
+        $post = Post::all()->where('account_id', '=', $id);
+        return view('posts.profile', ['post' => $post]);
     }
 
     /**

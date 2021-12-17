@@ -27,10 +27,21 @@ Route::get('/accounts/create', [AccountController::class, 'create'])
     ->name('accounts.create');
 Route::post('/accounts', [AccountController::class, 'store'])
     ->name('accounts.store');
-Route::get('/accounts/{id}/edit', [AccountController::class, 'show'])
+
+
+Route::get('/accounts/{id}', [PostController::class, 'show'])
+    ->name('posts.show');
+Route::delete('/accounts/{id}', [PostController::class, 'destroy'])
+    ->name('posts.destroy');
+
+
+Route::get('/accounts/{id}/show', [AccountController::class, 'show'])
     ->name('accounts.show');
-Route::delete('accounts/{id}/edit', [AccountController::class, 'destroy'])
+Route::delete('accounts/{id}', [AccountController::class, 'destroy'])
     ->name('accounts.destroy');
+Route::get('/accounts/{id}/edit', [AccountController::class, 'edit'])
+    ->name('accounts.edit');
+
 
 Route::get('/home/{userName?}', function ($userName = 'NoName') {
     return "This is $userName's home page";
@@ -57,10 +68,7 @@ Route::delete('comments/{id}', [CommentController::class, 'destroy'])
 
 Route::get('/', [PostController::class, 'index'])
     ->name('posts.index');
-Route::get('/{id}', [PostController::class, 'show'])
-    ->name('posts.show');
-Route::delete('/{id}', [PostController::class, 'destroy'])
-    ->name('posts.destroy');
+
 
 
 
