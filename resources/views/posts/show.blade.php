@@ -3,16 +3,17 @@
 @section('title', 'Post Details')
 
 @section('content')
-    <p>All posts</p>
+    <p>User Profile</p>
      
     @foreach ($post as $post)
-        <a href="{{ route('accounts.show', [ 'id' => $post->account_id ]) }}">{{$post->account->forename}} </a>
+        <a href="{{ route('accounts.show', [ 'id' => $post->account_id ]) }}">{{$post->account->forename}} {{$post->account->surname}}</a>
         <img src="{{asset('images/' . $post->id)}}.jpg"
             class="w-8/12 mb-8 shadow-xl"
             alt="">
-        {{$post->caption}}
+        Caption: {{$post->caption}}
         <p>like</p>
         <a href="{{ route('comments.show', [ 'id' => $post->id ]) }}">comments</a>
+        <p>-------------</p>
     @endforeach
 
     <ul>

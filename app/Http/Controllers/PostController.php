@@ -36,7 +36,18 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'caption' => 'required',
+            'image' => 'required|mimes:jpg,png,jpeg|max:5048'
+        ]);
+
+        $newImageName = $request->id;
+
+        $request->image->move(public_path('images'), $newImageName);
+
+        $post = Post::create([
+            'caption' => $request->input('name')
+        ]);
     }
 
     /**

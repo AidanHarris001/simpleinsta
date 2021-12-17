@@ -64,7 +64,8 @@ class AccountController extends Controller
      */
     public function edit($id)
     {
-        //
+        $account = Account::findOrFail($id);
+        return view('accounts.show', ['account' => $account]);
     }
 
     /**
