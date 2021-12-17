@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Account;
 
 class PostController extends Controller
 {
@@ -16,8 +15,7 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::all();
-        $account = Account::all();
-        return view('posts.index', ['post' => $post, 'account' => $account]);
+        return view('posts.index', ['post' => $post]);
     }
 
     /**
