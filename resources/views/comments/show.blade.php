@@ -4,9 +4,9 @@
 
 @section('content')
 
-    <li>
-        name: {{$comment->account->forename}}
-        content: {{$comment->content}}
-    </li>
-
+    
+    @foreach ($comment as $comment)
+        <p>{{$comment->account->forename}}</p>
+        <p>{{$comment->content}}</p>
+    @endforeach
 @endsection

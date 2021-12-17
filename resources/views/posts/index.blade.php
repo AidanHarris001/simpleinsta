@@ -14,7 +14,7 @@
                 alt="">
             {{$post->caption}}
             <p>like</p>
-            <a href="{{ route('posts.show', [ 'id' => $post->id ]) }}">comments</a>
+            <a href="{{ route('comments.show', [ 'id' => $post->id ]) }}">comments</a>
         @endforeach
     </ul>
 @endsection
