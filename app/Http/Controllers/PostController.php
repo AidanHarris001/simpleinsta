@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Account;
 
 class PostController extends Controller
 {
@@ -15,7 +16,8 @@ class PostController extends Controller
     public function index()
     {
         $post = Post::all();
-        return view('posts.index', ['post' => $post]);
+        $account = Account::all();
+        return view('posts.index', ['post' => $post, 'account' => $account]);
     }
 
     /**
@@ -82,6 +84,10 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $post->delete();
+
+        return redirect()->route('post.index')->with('message',
+        'post was deleted.');
     }
 }

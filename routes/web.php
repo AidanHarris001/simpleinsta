@@ -19,6 +19,8 @@ Route::get('/', [PostController::class, 'index'])
     ->name('posts.index');
 Route::get('/{id}', [PostController::class, 'show'])
     ->name('posts.show');
+    Route::delete('/{id}', [PostController::class, 'destroy'])
+    ->name('posts.destroy');
 
 Route::get('/profile/{account?}', function($account){
     return view('profile', ['account'=>$account]);

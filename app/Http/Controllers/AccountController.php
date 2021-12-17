@@ -91,6 +91,6 @@ class AccountController extends Controller
         $account->delete();
 
         return redirect()->route('accounts.index')->with('message',
-        'Animal was deleted.');
+        'Account was deleted.');
     }
 }
